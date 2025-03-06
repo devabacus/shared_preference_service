@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preference_service/textfield_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child:  MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,18 +15,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
+class Home extends ConsumerWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final textValue = ref.watch(textValueProvider);
 
-class _HomeState extends State<Home> {
-  String textValue = "";
 
-  @override
-  Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -37,11 +36,6 @@ class _HomeState extends State<Home> {
                   labelText: "Имя",
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (text) {
-                  setState(() {
-                    textValue = text.trim();
-                  });
-                },
               ),
             ),
             SizedBox(height: 30),
