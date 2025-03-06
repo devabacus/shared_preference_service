@@ -6,7 +6,7 @@ part of 'shared_pref_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$textValueHandlerHash() => r'0e07876097594a28b295f5600276f02f0dc8374e';
+String _$textValueHandlerHash() => r'a7a08fae20955b82ce3f1b4fe8600c9bf4834c1b';
 
 /// See also [TextValueHandler].
 @ProviderFor(TextValueHandler)
