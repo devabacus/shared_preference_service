@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preference_service/textfield_provider.dart';
 
 void main() {
-  runApp(ProviderScope(child:  MyApp()));
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,9 +20,7 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final textValue = ref.watch(textValueProvider);
-
-
+    final textValue = ref.watch(textHandlerProvider);
 
     return Scaffold(
       body: Center(
@@ -36,6 +34,10 @@ class Home extends ConsumerWidget {
                   labelText: "Имя",
                   border: OutlineInputBorder(),
                 ),
+                onChanged:
+                    (text) => ref
+                        .read(textHandlerProvider.notifier)
+                        .textChanged(text),
               ),
             ),
             SizedBox(height: 30),

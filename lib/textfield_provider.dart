@@ -7,3 +7,15 @@ part 'textfield_provider.g.dart';
 String textValue(Ref ref) {
   return "ivan";
 }
+
+@riverpod
+class TextHandler extends _$textHandler {
+  @override
+  String build() {
+    return "....";
+  }
+
+  void textChanged(String val) {
+    state = val;
+  }
+}

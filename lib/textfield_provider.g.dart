@@ -6,7 +6,7 @@ part of 'textfield_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$textValueHash() => r'df5ba83a7cc0062c12c231a40fcf48ab038294b5';
+String _$textValueHash() => r'1bff4525cec883c7f4d5323d71f572460294ff6d';
 
 /// See also [textValue].
 @ProviderFor(textValue)
@@ -22,5 +22,22 @@ final textValueProvider = AutoDisposeProvider<String>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef TextValueRef = AutoDisposeProviderRef<String>;
+String _$textHandlerHash() => r'c79a7d89d83dfec36a408a7ac263ea9438b7fe03';
+
+/// See also [TextHandler].
+@ProviderFor(TextHandler)
+final textHandlerProvider =
+    AutoDisposeNotifierProvider<TextHandler, String>.internal(
+      TextHandler.new,
+      name: r'textHandlerProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$textHandlerHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$textHandler = AutoDisposeNotifier<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
