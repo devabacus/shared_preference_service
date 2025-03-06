@@ -21,27 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _controller = TextEditingController();
   String textValue = "";
-
-  @override
-  void initState() {
-    _controller.addListener(_textHandle);
-    super.initState();
-  }
-
-  void _textHandle() {
-    setState(() {
-      textValue = _controller.text.trim();
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.removeListener(_textHandle);
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +33,15 @@ class _HomeState extends State<Home> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(
-                controller: _controller,
                 decoration: InputDecoration(
                   labelText: "Имя",
                   border: OutlineInputBorder(),
                 ),
+                onChanged: (text) {
+                  setState(() {
+                    textValue = text.trim();
+                  });
+                },
               ),
             ),
             SizedBox(height: 30),
