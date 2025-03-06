@@ -22,7 +22,7 @@ class TextValueHandler extends _$TextValueHandler {
   }
 
   Future<void> loadText() async {
-    final textVal = _repo.getString(key: 'mtext').toString();
+    final textVal = await _repo.getString(key: 'mtext');
 
     state = AsyncData(textVal);
   }

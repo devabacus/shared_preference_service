@@ -15,30 +15,28 @@ class TextSaverPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             textValue.when(
-              data:
-                  (val) => Text(
-                    "${textValue.value}",
-                    style: TextStyle(fontSize: 30),
-                  ),
+              data: (val) => Text(val, style: TextStyle(fontSize: 30)),
               error: (_, __) => Text("Ошибка", style: TextStyle(fontSize: 30)),
               loading: () => CircularProgressIndicator(),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               child: TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Имя",
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (val) => ref.read(textValueHandlerProvider.notifier).updateText(val),
+                onChanged:
+                    (val) => ref
+                        .read(textValueHandlerProvider.notifier)
+                        .updateText(val),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed:
-                  () =>
-                      ref.read(textValueHandlerProvider.notifier).saveText(),
+                  () => ref.read(textValueHandlerProvider.notifier).saveText(),
               child: Text("Сохранить"),
             ),
           ],
