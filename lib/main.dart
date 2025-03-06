@@ -4,7 +4,7 @@ import 'package:shared_preference_service/features/text_saver/presentations/page
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
