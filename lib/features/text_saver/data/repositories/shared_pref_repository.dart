@@ -9,14 +9,24 @@ class SharedPrefRepository {
 
   }
 
-  Future<bool> saveString(String val, String key) async {
+  Future<bool> setString({required String val, required String key}) async {
     final prefs = await _getPrefs();
     return await prefs.setString(key, val);
   }
 
-  Future<String> getString(String key, {String defaultValue = ""}) async {
+  Future<String> getString({required String key, String defaultValue = ""}) async {
     final prefs = await _getPrefs();
     return prefs.getString(key) ?? defaultValue;
   }
 
+
+  Future<bool> removeKey(String key) async {
+      final prefs = await _getPrefs();
+      return await prefs.remove(key);
+    }
+
+  Future<bool> clearAll() async {
+      final prefs = await _getPrefs();
+      return await prefs.clear();
+    }
 }
