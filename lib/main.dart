@@ -26,14 +26,21 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    _controller.addListener(textHandle);
+    _controller.addListener(_textHandle);
     super.initState();
   }
 
-  void textHandle() {
+  void _textHandle() {
     setState(() {
       textValue = _controller.text.trim();
     });
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_textHandle);
+
+    super.dispose();
   }
 
   @override
@@ -54,7 +61,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: 30),
-            Text("$textValue", style: TextStyle(fontSize: 30)),
+            Text(textValue, style: TextStyle(fontSize: 30)),
           ],
         ),
       ),
